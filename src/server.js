@@ -4,15 +4,13 @@ import ejs from 'ejs'
 
 const app = fastify()
 
-app.register(fastifyView, {
-    engine: {
-        ejs
-    }
-})
+app.register(fastifyView, {  
+     engine: { ejs: ejs }, 
+ });
 
-app.get('/', (req, res) => {
-    res.view('templates/index.ejs', {title: 'monTitre'})
-})
+app.get("/", (req, res) => {
+    return res.view("templates/index.ejs", {title: "truc"});
+});
 
 const start = async () => {
     try {
