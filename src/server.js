@@ -8,17 +8,17 @@ app.register(fastifyView, {
      engine: { ejs: ejs }, 
  });
 
-app.get("/", (req, res) => {
-    return res.view("templates/index.ejs", {title: "truc"});
+ app.get("/", async function(req, res) {  
+    try {  
+        const data = { 
+            config: config, 
+            user: getUser(req.session.get("user")?.id), 
+            page: "home"
+        }; 
+ 
+        return res.status(200).view("../templates/index.ejs", { data: data }); 
+    } catch(err) {  
+        console.error(err); 
+        return res.status(500).send({"message": "[500] InternalServerError - An error was occured"}); 
+    }; 
 });
-
-const start = async () => {
-    try {
-        await app.listen({port: 3000})
-    } catch (err) {
-        console.error(err)
-        process.exit(1)
-    }
-}
-
-start()
