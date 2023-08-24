@@ -1,11 +1,8 @@
+const express = require('express');
 const http = require('http');
 
-const server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.write('<html>')
-    res.write('<head><title>webdev</title></head>');
-    res.write('<body><h1>hello dev</h1></body>');
-    res.end('</html>');
-})
+const app =express();
 
-server.listen(3000);
+app.listen(3000, () => {
+    console.log('server started at port 3000');
+})
