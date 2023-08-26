@@ -9,6 +9,7 @@ const homeRoutes = require('./routes/home');
 const app = express();
 
 app.use(express.static(path.join(rootDir, 'public')));
+app.use('/css', express.static(path.join(rootDir, 'node_modules','bootstrap', 'dist', 'css')));
 
 app.use(bodyParser.urlencoded({extended: false}));
 
