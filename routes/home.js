@@ -1,10 +1,16 @@
 const path = require('path');
 const express = require('express');
 const router = express.Router();
-const rootDir = require('../utils/path')
+const rootDir = require('../utils/path');
+const { request } = require('http');
+const productsData = require('../utils/products')
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(rootDir, 'views', 'homepage.html'));
+    const viewsData = {
+        products: productsData.products,
+        pageTitle: 'Home Page - Products List'
+    };
+    res.render('homepage', viewsData);
 });
 
 module.exports = router;
