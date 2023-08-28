@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageTitle %></title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/main.css" />
+<%- include('includes/head.ejs') %>
 </head>
 <body>
-    <header>E-Commerce Website</header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/products/add">Add Product</a></li>
-        </ul>
-    </nav>
+    <%- include('includes/navigation.ejs')  %>
     <main>
         <div class="container">
             <div class="row">
@@ -33,5 +20,4 @@
             </div>
         </div>
     </main>
-</body>
-</html>
+<%- include('includes/footer.ejs')  %>
