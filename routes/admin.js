@@ -1,5 +1,4 @@
 const express = require('express');
-const productsData = require('../utils/products');
 const { getAddProductPage, postAddProductPage } = require('../controllers/admin/ProductController');
 
 const router = express.Router();
