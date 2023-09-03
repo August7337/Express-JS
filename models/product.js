@@ -27,3 +27,10 @@ exports.saveProduct = (product) => {
 exports.fetchAllProducts = (callBack) => {
     getProductsFromFile(callBack)
 };
+
+exports.getProductByUrl = (productUrl, callBack) => {
+    getProductsFromFile(products => {
+        const product = products.find((p) => p.url.toString() === productUrl);
+        callBack(product);
+    });
+};

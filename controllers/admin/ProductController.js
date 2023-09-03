@@ -10,6 +10,7 @@ exports.getAddProductPage = (req, res) => {
 exports.postAddProductPage = (req, res) => {
     const product = {
         title: req.body.title,
+        url: req.body.url,
         image: req.body.image,
         price: req.body.price,
         description: req.body.description
