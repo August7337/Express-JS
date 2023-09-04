@@ -1,11 +1,12 @@
-const { saveProduct, fetchAllProducts } = require("../../models/product");
+const { saveProduct, fetchAllProducts, getProductByUrl } = require("../../models/product");
 
 exports.getAddProductPage = (req, res) => {
     const viewsData = {
+        edit: false,
         pageTitle: 'Add Product'
     };
     res.render('AddProduct', viewsData);
-};
+  };
 
 exports.postAddProductPage = (req, res) => {
     const product = {
@@ -29,3 +30,16 @@ exports.getAdminProductsPage = (req, res) => {
         res.render('product-list', viewsData);
     })
 }
+
+exports.getEditProductPage = (req, res) => {
+    const productUrl = req.params.productUrl;
+    
+    getProductByUrl(productUrl, (product) => {
+        const viewsData = {
+            edit: true,
+            product,
+            pageTitle: 'Edit Product'
+        };
+        res.render('AddProduct', viewsData);
+    });
+};

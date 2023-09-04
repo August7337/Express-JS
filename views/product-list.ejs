@@ -21,7 +21,7 @@
                                         <p><%= product.description %></p>
                                         <% if (admin) { %>
                                             <div class="my-2 text-center">
-                                                <a href="/product/details/<%= product.url %>" class="btn btn-primary">Edit</a>
+                                                <a href="/products/edit/<%= product.url %>" class="btn btn-primary">Edit</a>
                                                 <a href="/product/details/<%= product.url %>" class="btn btn-primary">Delete</a>
                                             </div>
                                         <% } else { %>
