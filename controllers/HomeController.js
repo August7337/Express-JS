@@ -4,10 +4,11 @@ exports.getHomePage = (req, res) => {
 
     fetchAllProducts(products => {
         const viewsData = {
+            admin: false,
             products,
             pageTitle: 'Home Page - Products List'
         };
-        res.render('homepage', viewsData);
+        res.render('product-list', viewsData);
     });
 };
 

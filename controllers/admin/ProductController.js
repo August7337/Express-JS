@@ -1,4 +1,4 @@
-const { saveProduct } = require("../../models/product");
+const { saveProduct, fetchAllProducts } = require("../../models/product");
 
 exports.getAddProductPage = (req, res) => {
     const viewsData = {
@@ -18,3 +18,14 @@ exports.postAddProductPage = (req, res) => {
     saveProduct(product);
     res.redirect('/');
 };
+
+exports.getAdminProductsPage = (req, res) => {
+    fetchAllProducts((products) => {
+        const viewsData = {
+            admin: true,
+            pageTitle: 'Admin Products',
+            products
+        }
+        res.render('product-list', viewsData);
+    })
+}
