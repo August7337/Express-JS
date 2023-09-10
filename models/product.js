@@ -47,4 +47,15 @@ exports.updateProductByUrl = (product, productUrl) => {
         console.log(error);
       });
     });
-  };
+};
+
+exports.deleteProductByUrl = (productUrl, callBack) => {
+    const productsPath = path.join(rootDir, 'data', 'products.json');
+    getProductsFromFile(products => {
+        let updatedProducts = products.filter(product => product.url.toString() !== productUrl.toString());
+        fs.writeFile(productsPath, JSON.stringify(updatedProducts), error => {
+            console.log(error);
+        });
+        callBack();
+    });
+};
