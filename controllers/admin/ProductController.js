@@ -1,4 +1,4 @@
-const { saveProduct, fetchAllProducts, getProductByUrl } = require("../../models/product");
+const { saveProduct, fetchAllProducts, getProductByUrl, updateProductByUrl } = require("../../models/product");
 
 exports.getAddProductPage = (req, res) => {
     const viewsData = {
@@ -42,4 +42,20 @@ exports.getEditProductPage = (req, res) => {
         };
         res.render('AddProduct', viewsData);
     });
+};
+
+exports.postEditProductPage = (req, res) => {
+    const product = {
+        title: req.body.title,
+        url: req.body.productUrl,
+        image: req.body.image,
+        price: req.body.price,
+        description: req.body.description
+    };
+    updateProductByUrl(product, req.body.productUrl);
+    res.redirect('/products');
+};
+
+exports.postDeleteProductPage = (req, res) => {
+
 };
