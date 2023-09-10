@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2><%= edit ? 'Edit Product' : 'Add Product' %></h2>
-                    <form method="POST" action="<%= edit ? '/products/edit' : '/products/add' %>"> 
+                    <form method="POST" action="<%= edit ? '/admin/edit' : '/admin/add' %>"> 
                         <% if (edit) { %>
                             <input type="hidden" name="productUrl" value="<%= product.url %>" />
                         <% } %>

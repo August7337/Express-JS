@@ -6,7 +6,7 @@ exports.getAddProductPage = (req, res) => {
         pageTitle: 'Add Product'
     };
     res.render('AddProduct', viewsData);
-  };
+};
 
 exports.postAddProductPage = (req, res) => {
     const product = {
@@ -53,12 +53,20 @@ exports.postEditProductPage = (req, res) => {
         description: req.body.description
     };
     updateProductByUrl(product, req.body.productUrl);
-    res.redirect('/products');
+    res.redirect('/admin');
 };
 
 exports.postDeleteProductPage = (req, res) => {
     const productUrl = req.body.productUrl;
     deleteProductByUrl(productUrl, () => {
-        res.redirect('/products');
+        res.redirect('/admin');
     });
+};
+
+exports.getLoginPage = (req, res) => {
+    const viewsData = {
+        edit: false,
+        pageTitle: 'Add Product'
+    };
+    res.render('login', viewsData);
 };

@@ -1,6 +1,3 @@
-
-// Tuto n31 finish
-
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -21,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //Routes
 app.use(homeRoutes);
-app.use('/products', adminRoutes);
+app.use('/admin', adminRoutes);
 app.use((req, res) => {
     const viewsData = {
         pageTitle: 'Page Note Found'

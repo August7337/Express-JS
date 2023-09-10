@@ -21,8 +21,8 @@
                                         <p><%= product.description %></p>
                                         <% if (admin) { %>
                                             <div class="my-2 text-center d-flex justify-content-center">
-                                                <a href="/products/edit/<%= product.url %>" class="btn btn-primary mx-2">Edit</a>
-                                                <form action="/products/delete/" method="post">
+                                                <a href="/admin/edit/<%= product.url %>" class="btn btn-primary mx-2">Edit</a>
+                                                <form action="/admin/delete/" method="post">
                                                     <input type="hidden" name="productUrl" value="<%= product.url %>">
                                                     <button class="btn btn-danger">Delete</button>
                                                 </form>
