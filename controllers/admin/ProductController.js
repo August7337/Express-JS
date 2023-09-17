@@ -66,7 +66,16 @@ exports.postDeleteProductPage = (req, res) => {
 exports.getLoginPage = (req, res) => {
     const viewsData = {
         edit: false,
-        pageTitle: 'Add Product'
+        pageTitle: 'Login'
     };
     res.render('login', viewsData);
 };
+
+exports.getRegisterPage = (req, res) => {
+    const viewsData = {
+        edit: false,
+        pageTitle: 'Register'
+    };
+    res.render('register', viewsData);
+};
+

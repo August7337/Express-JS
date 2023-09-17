@@ -9,8 +9,13 @@
                 <div class="title pb-5">
                     <h2 class="font-weight-bold">Login System</h2>
                     <span>Log in for the existing user</span>
+                    <% if (messages.error) {%>
+                        <div class="alert alert-danger mt-3">
+                            <strong><%= messages.error %></strong>
+                        </div>
+                    <% } %>
                 </div>
-                <form action="#">
+                <form action="/admin/login" method="post">
                     <div class="form-group">
                         <input type="email" class="form-control" placeholder="email" name="email">
                         <small class="form-text text-muted text-left">Register email adress</small>
