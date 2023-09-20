@@ -79,6 +79,6 @@ app.use((req, res) => {
 });
 
 // Start local server 
-app.listen(8080, () => {
+app.listen(3000, () => {
     console.log('server started at port 3000');
 });

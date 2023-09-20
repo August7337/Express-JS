@@ -65,17 +65,38 @@ exports.postDeleteProductPage = (req, res) => {
 
 exports.getLoginPage = (req, res) => {
     const viewsData = {
-        edit: false,
         pageTitle: 'Login'
     };
+    //console.log('test');
     res.render('login', viewsData);
 };
 
 exports.getRegisterPage = (req, res) => {
     const viewsData = {
-        edit: false,
         pageTitle: 'Register'
     };
     res.render('register', viewsData);
 };
 
+exports.test = (req, res) => {
+    console.log('test');
+};
+
+exports.requireAuth = (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return next();
+    } else {
+      res.redirect('/admin/login'); // Redirigez vers la page de connexion si l'utilisateur n'est pas authentifié.
+    }
+}
+
+
+//function requireAuthPC(req, res, next) {
+//    if (req.isAuthenticated()) {
+//      return next();
+//    } else {
+//      res.redirect('/admin/login'); // Redirigez vers la page de connexion si l'utilisateur n'est pas authentifié.
+//    }
+//}
+
+  
