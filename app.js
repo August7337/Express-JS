@@ -11,15 +11,25 @@ const bcrypt = require('bcrypt');
 const adminRoutes = require('./routes/admin');
 const homeRoutes = require('./routes/home');
 
-const initializePassport = require('./utils/passport-config');
-const passport = require('passport');
-const flash = require('express-flash');
-const session = require('express-session');
-
 const app = express();
 app.use(express.urlencoded({extended:false}));
 
 const users = [];
+
+app.set('view engine', 'ejs');
+app.set('views', 'views')
+
+//Static files
+app.use(express.static(path.join(rootDir, 'public')));
+app.use('/css', express.static(path.join(rootDir, 'node_modules','bootstrap', 'dist', 'css')));
+app.use(bodyParser.urlencoded({extended: false}));
+
+
+
+const initializePassport = require('./models/passport-config');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
 
 app.post('/admin/register', async (req, res) => {
     try {
@@ -44,14 +54,6 @@ initializePassport(
     id => users.find(user => user.id === id)
 );
 
-app.set('view engine', 'ejs');
-app.set('views', 'views')
-
-//Static files
-app.use(express.static(path.join(rootDir, 'public')));
-app.use('/css', express.static(path.join(rootDir, 'node_modules','bootstrap', 'dist', 'css')));
-app.use(bodyParser.urlencoded({extended: false}));
-
 app.use(flash());
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -63,10 +65,13 @@ app.use(passport.session());
 
 //Configuration the login
 app.post('/admin/login', passport.authenticate('local', {
-    successRedirect: "/adminnn",
+    successRedirect: "/admin",
     failureRedirect: '/admin/login',
     failureFlash: true
 }));
+
+
+
 
 //Routes
 app.use(homeRoutes);

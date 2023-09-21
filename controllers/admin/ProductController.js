@@ -87,16 +87,7 @@ exports.requireAuth = (req, res, next) => {
       return next();
     } else {
       res.redirect('/admin/login'); // Redirigez vers la page de connexion si l'utilisateur n'est pas authentifié.
-    }
-}
-
-
-//function requireAuthPC(req, res, next) {
-//    if (req.isAuthenticated()) {
-//      return next();
-//    } else {
-//      res.redirect('/admin/login'); // Redirigez vers la page de connexion si l'utilisateur n'est pas authentifié.
-//    }
-//}
+    };
+};
 
   
