@@ -3,13 +3,13 @@ const { getAddProductPage, postAddProductPage, getAdminProductsPage, getEditProd
 
 const router = express.Router();
 
-router.get('/', requireAuth, getAdminProductsPage);
+router.get('/', getAdminProductsPage);
 router.get('/login', getLoginPage);
 router.get('/register', getRegisterPage);
-router.get('/add', requireAuth, getAddProductPage);
-router.post('/add', requireAuth, postAddProductPage);
-router.get('/edit/:productUrl', requireAuth, getEditProductPage);
-router.post('/edit', requireAuth, postEditProductPage);
-router.post('/delete', requireAuth, postDeleteProductPage);
+router.get('/add', getAddProductPage);
+router.post('/add', postAddProductPage);
+router.get('/edit/:productUrl', getEditProductPage);
+router.post('/edit', postEditProductPage);
+router.post('/delete', postDeleteProductPage);
 
 module.exports = router;
