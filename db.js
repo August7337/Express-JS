@@ -12,15 +12,14 @@ const client = new Client({
 
 client.connect();
 
-const executeQuery = () => {
+const executeQuery = (query) => {
     return new Promise((resolve, reject) => {
-      client.query(`SELECT * FROM users`, (err, res) => {
+      client.query(query, (err, res) => {
         if (!err) {
           resolve(res.rows);
         } else {
           reject(err);
         }
-        client.end();
       });
     });
 };

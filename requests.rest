@@ -1,0 +1,17 @@
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name":"bob",
+    "email":"bob@email.com",
+    "password":"bob73"
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email":"bob@email.com",
+    "password":"bob73"
+}
