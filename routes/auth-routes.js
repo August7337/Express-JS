@@ -17,7 +17,6 @@ router.post('/login', async (req, res) => {
         if (!validPassword) return res.status(401).json({ error: 'Password is incorrect' });
         //JWT
         let tokens = jwtTokens(users[0]);
-        res.cookie('access_token', tokens.accessToken, { httpOnly: true });
         res.cookie('refresh_token', tokens.refreshToken, { httpOnly: true });
         res.json(tokens);
 

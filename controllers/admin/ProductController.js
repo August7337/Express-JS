@@ -64,11 +64,11 @@ exports.postDeleteProductPage = (req, res) => {
 };
 
 exports.getLoginPage = (req, res) => {
-    const viewsData = {
-        pageTitle: 'Login'
-    };
+    //const viewsData = {
+    //    pageTitle: 'Login'
+    //};
     //console.log('test');
-    res.render('login', viewsData);
+    res.render('login');
 };
 
 exports.getRegisterPage = (req, res) => {

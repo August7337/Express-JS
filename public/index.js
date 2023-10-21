@@ -71,6 +71,17 @@ async function fetchUsers(token) {
   return await res.json();
 }
 
+async function fetchAdmin(token) {
+  
+  const res = await fetch(`/admin`, {
+    headers: {
+      'Authorization': 'Bearer ' + token,
+    },
+  });
+  //await console.log(res.json());
+  return await res;
+}
+
 
 buttonRefreshToken.onclick = async () => {
   const refreshDetails = await fetchRefreshToken();
