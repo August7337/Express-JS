@@ -1,15 +1,15 @@
 const express = require('express');
 const { getAddProductPage, postAddProductPage, getAdminProductsPage, getEditProductPage, postEditProductPage, postDeleteProductPage, getLoginPage, getRegisterPage, requireAuth } = require('../controllers/admin/ProductController');
+const { authenticateToken } = require('../middleware/authorization');
 
 const router = express.Router();
 
-router.get('/', getAdminProductsPage);
+router.get('/', authenticateToken, getAdminProductsPage);
 router.get('/login', getLoginPage);
-router.get('/register', getRegisterPage);
-router.get('/add', getAddProductPage);
-router.post('/add', postAddProductPage);
-router.get('/edit/:productUrl', getEditProductPage);
-router.post('/edit', postEditProductPage);
-router.post('/delete', postDeleteProductPage);
+router.get('/add', authenticateToken, getAddProductPage);
+router.post('/add', authenticateToken, postAddProductPage);
+router.get('/edit/:productUrl', authenticateToken, getEditProductPage);
+router.post('/edit', authenticateToken, postEditProductPage);
+router.post('/delete', authenticateToken, postDeleteProductPage);
 
 module.exports = router;

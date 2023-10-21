@@ -1,4 +1,7 @@
 <%- include('includes/head.ejs') %>
+<% if (admin) { %>
+    <script type="module" src="refresh-token.js"></script>
+<% } %>
 </head>
 <body>
     <%- include('includes/navigation.ejs')  %>
