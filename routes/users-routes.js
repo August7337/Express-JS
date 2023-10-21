@@ -1,10 +1,11 @@
 const express = require('express');
 const executeQuery = require('../db.js');
 const bcrypt = require('bcrypt');
+const { authenticateToken } = require('../middleware/authorization.js');
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/',authenticateToken, async (req, res) => {
   try {
     const queryResult = await executeQuery(`SELECT * FROM users`);
     res.json(queryResult);
