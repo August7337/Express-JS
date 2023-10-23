@@ -1,21 +1,19 @@
 <%- include('includes/head.ejs') %>
 </head>
 <body>
-    <%- include('includes/navigation.ejs')  %>
     <main>
-        <div class="container">
+        <div class="w-screen">
             <div class="row">
-                <div class="col-md-6 offset-md-3 text-center">
-                    <h3><%= product.title %></h3>
-                    <div>
-                        <img src="<%= product.image %>" class="img-fluid"/>
-                    </div>
+                <div class="flex flex-col items-center justify-center">
+                    <h1 class="text-center my-10 uppercase font-bold text-7xl text-transparent bg-clip-text 
+                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                    "><%= product.title %></h1>
+                    <img src="<%= product.image %>" class="max-w-2xl mb-5"/>
                     <div>Price: <strong>$<%= product.price %></strong></div>
-                    <p><%= product.description %></p>
-
-                    <div class="my-2">
-                        <button class="btn btn-primary">Add to Cart</button>
-                    </div>
+                    <p class="mb-5"><%= product.description %></p>
+                    <form action="/">
+                        <input class="btn btn-outline btn-warning w-full" type="submit" value="Return to home" />
+                    </form>
                 </div>
             </div>
         </div>

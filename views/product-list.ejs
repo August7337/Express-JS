@@ -4,46 +4,51 @@
 <% } %>
 </head>
 <body>
-    <%- include('includes/navigation.ejs')  %>
+    <% if (admin) { %>
+        <%- include('includes/navigation.ejs')  %>
+    <% } %>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><%= (admin) ? 'Admin Products List' : 'Products List' %></h1>
+        <% if (admin) { %>
+        <div class="lg:ml-80 ml-0 mb-10">
+        <% } else { %>
+        <div class="lg:mx-40 mx-0 mb-10">
+        <% } %>
+        
+            <div class="flex flex-col align-middle">
+                <h1 class="mx-3 text-center my-10 uppercase font-bold text-7xl text-transparent bg-clip-text 
+                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"><%= (admin) ? 'Admin Products List' : 'Products List' %></h1>
 
-                    <% if (products.length) { %>
-                        <div class="row">
-                            <% for(let product of products) { %>
-                                <div class="col-md-3">
-                                    <div class="product">
-                                        <div class="text-center">
-                                            <img src="<%= product.image %>" class="img-fluid"/>
+                <% if (products.length) { %>
+                    <div class=" grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 place-items-center mx-10 gap-10">
+                        <% for(let product of products) { %>
+
+                            <div class="card md:w-80 lg:w-96 bg-base-200 shadow-xl">
+                                <figure><img src="<%= product.image %>" alt="<%= product.title %>" /></figure>
+                                    <div class="card-body">
+                                      <h2 class="card-title"><%= product.title %></h2>
+                                      <p>Price: <strong>$<%= product.price %></strong></p>
+                                      <p><%= product.description %></p>
+                                      <% if (admin) { %>
+                                        <div class="flex justify-center mt-3">
+                                            <a href="/admin/edit/<%= product.url %>" class="btn btn-outline btn-info mr-2">Edit</a>
+                                            <form action="/admin/delete/" method="post">
+                                                <input type="hidden" name="productUrl" value="<%= product.url %>">
+                                                <button class="btn btn-outline btn-error">Delete</button>
+                                            </form>
                                         </div>
-                                        <h3><%= product.title %></h3>
-                                        <div>Price: <strong>$<%= product.price %></strong></div>
-                                        <p><%= product.description %></p>
-                                        <% if (admin) { %>
-                                            <div class="my-2 text-center d-flex justify-content-center">
-                                                <a href="/admin/edit/<%= product.url %>" class="btn btn-primary mx-2">Edit</a>
-                                                <form action="/admin/delete/" method="post">
-                                                    <input type="hidden" name="productUrl" value="<%= product.url %>">
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </div>
-                                        <% } else { %>
-                                            <div class="my-2 text-center">
-                                                <a href="/product/details/<%= product.url %>" class="btn btn-primary">View Details</a>
-                                            </div>
-                                        <% } %>
+                                    <% } else { %>
+                                        <div class="my-2 text-center">
+                                            <a href="/product/details/<%= product.url %>" class="btn btn-primary">View Details</a>
+                                        </div>
+                                    <% } %>
                                     </div>
-                                </div>
+                                  </div>
                             <% }; %>
                         </div>
                     <% } else { %>
                         <div>No Products Available.</div>
                     <% } %>
                 </div>
-            </div>
         </div>
         
     </main>

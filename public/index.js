@@ -23,6 +23,7 @@ formLogin.onsubmit = async e => {
     pStatus.innerText = loginDetails.error;
     return;
   }
+  window. location = "/admin"
   accessToken = loginDetails.accessToken;
   const jwtDecoded = jwtDecode(accessToken);
   pStatus.innerHTML = `Login Successful! </br> Hello ${jwtDecoded.user_name}</br> Your id is ${jwtDecoded.user_id}</br> Your email is ${jwtDecoded.user_email}`;

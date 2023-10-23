@@ -1,48 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-  <title>JWT-PG</title>
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="../circle.css">
 </head>
 
 <body>
-  <div class="container">
-    <p id="login-status">Not logged in</p>
+  <%- include('includes/navigation.ejs')  %>
+  <div class="flex justify-center flex-col items-center text-center">
+    <div id="div-login" class="mb-16">
+      <h1 class="mb-10 mt-10 uppercase font-bold text-7xl	 text-transparent bg-clip-text 
+      bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+      ">LOGIN</h1>
+      <form id="form-login">
+        <label class="label">
+          <span class="label-text">What's your email?</span>
+        </label>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full mb-5" name="email"/>
 
-    <div id="div-login" class="flex">
-      <h1>LOGIN</h1>
-      <form id="form-login" class="flex gap">
-        <input type="text" name="email">
-        <input type="password" name="password">
-        <input type="submit" value="LOGIN">
+        <label class="label">
+          <span class="label-text">What's your password?</span>
+        </label>
+        <input type="password" placeholder="Type here" class="input input-bordered w-full mb-5" name="password"/>
+
+        <input class="btn btn-active btn-primary w-full" type="submit" value="LOGIN">
       </form>
     </div>
 
-    <div id="div-users" class="flex">
-      <h2>USERS</h2>
-      <button id="button-get-users">GET USERS</button>
-      <ul id="user-list"></ul>
+    <div class="flex flex-col  justify-between">
+      <div id="div-users" class="mb-3">
+        <button class="btn btn-outline btn-secondary w-full mb-1" id="button-get-users">GET USERS</button>
+        <ul id="user-list"></ul>
+      </div>
+  
+      <div>
+        <button class="btn btn-outline btn-secondary w-full mb-4" id="button-refresh-token">REFRESH TOKEN</button>
+      </div>
+  
+      <div>
+        <button class="btn btn-outline btn-error w-full mb-4" id="button-delete-token">LOGOUT</button>
+      </div>
     </div>
-
-    <div class="flex">
-      <h2>REFRESH TOKEN</h2>
-      <button id="button-refresh-token">REFRESH TOKEN</button>
-    </div>
-
-    <div class="flex">
-      <h2>DELETE TOKEN / LOGOUT</h2>
-      <button id="button-delete-token">DELETE TOKEN</button>
-    </div>
-  </div>
+</div>
+  
   <script type="module" id=""src="/jwt-decode.js"></script>
   <script type="module" src="/index.js"></script>
   <script type="module" src="/refresh-token.js"></script>
-</body>
-
-</html>
+<%- include('includes/footer.ejs')  %>

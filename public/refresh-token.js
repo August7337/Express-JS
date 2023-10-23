@@ -14,7 +14,7 @@ async function fetchRefreshToken(){
 
 function yourFunction(){
     fetchRefreshToken();
-    setTimeout(yourFunction, 1000);
+    setTimeout(yourFunction, 19000);
 }
 
 yourFunction();

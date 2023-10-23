@@ -1,40 +1,47 @@
 <%- include('includes/head.ejs') %>
-<script type="module" src="refresh-token.js"></script>
+<script type="module" src="/refresh-token.js"></script>
 </head>
 <body>
     <%- include('includes/navigation.ejs')  %>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2><%= edit ? 'Edit Product' : 'Add Product' %></h2>
+        <div class=" container mx-auto">
+            <div class="flex flex-col w-full items-center mb-10">
+                <div class="max-w-md mx-5">
+                    <h1 class="mb-10 mt-10 uppercase font-bold text-5xl md:text-7xl text-transparent bg-clip-text 
+                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"><%= edit ? 'Edit Product' : 'Add Product' %></h1>
                     <form method="POST" action="<%= edit ? '/admin/edit' : '/admin/add' %>"> 
                         <% if (edit) { %>
                             <input type="hidden" name="productUrl" value="<%= product.url %>" />
                         <% } %>
-                        <p>
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title" value="<%= edit ? product.title : '' %>" />
-                        </p>
-                        <p>
-                            <label for="url">url name</label>
-                            <input type="text" class="form-control" name="url" value="<%= edit ? product.url : '' %>"/>
-                        </p>
-                        <p>
-                            <label for="image">Image Url</label>
-                            <input type="text" class="form-control" name="image" value="<%= edit ? product.image : '' %>"/>
-                        </p>
-                        <p>
-                            <label for="price">Price</label>
-                            <input type="number" step="any" class="form-control" name="price" value="<%= edit ? product.price : '' %>"/>
-                        </p>
-                        <p>
-                            <label for="description">Description</label>
-                            <textarea class="form-control" name="description" ><%= edit ? product.description : '' %></textarea>
-                        </p>
-                        <p>
-                            <button><%= edit ? 'Edit Product' : 'Add Product' %></button>
-                        </p> 
+                        
+                        <label class="label" for="title">
+                            <span class="label-text">Title</span>
+                        </label>
+                        <input placeholder="Type here" type="text" class="input input-bordered w-full mb-3" name="title" value="<%= edit ? product.title : '' %>" />
+                        
+                        <label class="label" for="url">
+                            <span class="label-text">Url name</span>
+                        </label>
+                        <input placeholder="Type here" type="text" class="input input-bordered w-full mb-3" name="url" value="<%= edit ? product.url : '' %>"/>
+                        
+                        <label class="label" for="image">
+                            <span class="label-text">Image url</span>
+                        </label>
+                        <input placeholder="Type here" type="text" class="input input-bordered w-full mb-3" name="image" value="<%= edit ? product.image : '' %>"/>
+                        
+                        
+                        <label class="label" for="price">
+                            <span class="label-text">Price</span>
+                        </label>
+                        <input placeholder="Type here" type="number" step="any" class="input input-bordered w-full mb-3" name="price" value="<%= edit ? product.price : '' %>"/>
+                        
+                        <label class="label" for="description">
+                            <span class="label-text">Description</span>
+                        </label>
+                        <textarea placeholder="Type here" class="textarea textarea-bordered textarea-lg w-full mb-3" name="description" ><%= edit ? product.description : '' %></textarea>
+                        
+                        <button class="btn btn-active btn-primary w-full"><%= edit ? 'Edit Product' : 'Add Product' %></button>
+                         
                     </form>
                 </div>
             </div>

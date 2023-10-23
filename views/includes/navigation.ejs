@@ -1,15 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Node E-Commerce</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link" href="/admin/add">Add Product</a>
-          <a class="nav-link" href="/admin">Admin</a>
-        </div>
-      </div>
+<nav class="fixed z-50">
+  <div class="drawer lg:drawer-open">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+
+    <div class="drawer-content flex flex-col items-center justify-center ml-3 mt-3">
+      <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">
+        <img src="/svg/bars-3.svg" class="h-5" alt="Bars-3 Logo SVG">
+      </label>
     </div>
+
+    <div class="drawer-side">
+      <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label> 
+      <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content text-xl">
+        <!-- Sidebar content here -->
+        <li><a href="/"><img src="/svg/home.svg" class="h-5" alt="Home Logo SVG">Home</a></li>
+        <div class="divider"></div> 
+        <li><a href="/admin/add"><img src="/svg/add.svg" class="h-5" alt="Add Logo SVG">Add Product</a></li>
+        <li><a href="/admin"><img src="/svg/list.svg" class="h-5" alt="List Logo SVG">Product List</a></li>
+        <div class="divider"></div>
+        <li><a href="/admin/login"><img src="/svg/login.svg" class="h-5" alt="Login Logo SVG">Login</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
