@@ -23,7 +23,6 @@ exports.authenticateToken = (req, res, next) => {
         });
     } else {
         res.redirect('/admin/login');
-        res.status(401).json({ error: 'No Token' });
-        
+        //res.status(401).json({ error: 'No Token' }); 
     }
 }

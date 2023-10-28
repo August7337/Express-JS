@@ -31,6 +31,15 @@ exports.getAdminProductsPage = (req, res) => {
     })
 }
 
+exports.getAdminUsersPage = (req, res) => {
+    const viewsData = {
+        pageTitle: 'Users',
+    }
+    res.render('users', viewsData);
+}
+
+
+
 exports.getEditProductPage = (req, res) => {
     const productUrl = req.params.productUrl;
     
