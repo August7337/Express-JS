@@ -3,7 +3,7 @@ const formUser = document.getElementById("form-user");
 const fStatus = document.getElementById("status");
 const sPanel = document.getElementById("status-panel");
 const pBtn = document.getElementById("panel-btn");
-
+const deleteForm = document.getElementById("delete-user");
 
 let showPanel = (bShow) => {
   bShow ? sPanel.style.display = "flex" : sPanel.style.display = "none";
@@ -56,7 +56,6 @@ formUser.onsubmit = async e => {
   fStatus.innerHTML = `Successful!`;
 }
 
-
 async function createUser(data) {
   if (data.name) {
     if (data.email) {
@@ -80,5 +79,30 @@ async function createUser(data) {
   } else {
     fStatus.innerHTML = 'Please enter a name';
   }
-  
+}
+
+deleteForm.onsubmit = async e => {
+  console.log(deleteForm.email.value);
+  e.preventDefault();
+  const del = await deleteUserForm({email : deleteForm.email.value});
+  showPanel(true);
+  if (del.error) {
+    fStatus.innerText = del.error;
+    return;
+  }
+  user();
+  fStatus.innerHTML = `Successful!`;
+}
+
+async function deleteUserForm(data) {
+  const res = await fetch(`${api_url}/users/delete`, {
+    method: 'POST',
+    credentials:'include',
+    cache:'no-cache',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  return await res.json();
 }

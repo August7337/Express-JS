@@ -30,4 +30,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.post('/delete', async (req, res) => {
+  try {
+    reqEmail = req.body;
+    console.log('reqEmail : ', reqEmail);
+    const deleteUser = await executeQuery(
+      `DELETE FROM users WHERE user_email = '${reqEmail.email}'`
+    );
+    res.json(`success to delete ${reqEmail}`);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;

@@ -7,6 +7,7 @@
                 <div class="flex flex-col items-center justify-center">
                     <h1 class="text-center my-10 uppercase font-bold text-7xl text-transparent bg-clip-text 
                     bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                    [&::selection]:text-base-content [&::selection]:bg-blue-700/20
                     "><%= product.title %></h1>
                     <img src="<%= product.image %>" class="max-w-2xl mb-5"/>
                     <div>Price: <strong>$<%= product.price %></strong></div>

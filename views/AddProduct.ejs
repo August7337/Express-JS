@@ -8,7 +8,8 @@
             <div class="flex flex-col w-full items-center mb-10">
                 <div class="max-w-md mx-5">
                     <h1 class="mb-10 mt-10 uppercase font-bold text-5xl md:text-7xl text-transparent bg-clip-text 
-                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"><%= edit ? 'Edit Product' : 'Add Product' %></h1>
+                    bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                    [&::selection]:text-base-content [&::selection]:bg-blue-700/20"><%= edit ? 'Edit Product' : 'Add Product' %></h1>
                     <form method="POST" action="<%= edit ? '/admin/edit' : '/admin/add' %>"> 
                         <% if (edit) { %>
                             <input type="hidden" name="productUrl" value="<%= product.url %>" />

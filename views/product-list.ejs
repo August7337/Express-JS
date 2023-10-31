@@ -16,7 +16,8 @@
         
             <div class="flex flex-col align-middle">
                 <h1 class="mx-3 text-center my-10 uppercase font-bold text-7xl text-transparent bg-clip-text 
-                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"><%= (admin) ? 'Admin Products List' : 'Products List' %></h1>
+                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
+                [&::selection]:text-base-content [&::selection]:bg-blue-700/20"><%= (admin) ? 'Admin Products List' : 'Products List' %></h1>
 
                 <% if (products.length) { %>
                     <div class=" grid md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 place-items-center mx-10 gap-10">
