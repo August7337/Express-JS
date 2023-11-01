@@ -15,7 +15,7 @@ router.get('/',authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
   try {
     console.log(req.body.name);
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.post('/delete', async (req, res) => {
+router.delete('/', authenticateToken, async (req, res) => {
   try {
     reqEmail = req.body;
     console.log('reqEmail : ', reqEmail);

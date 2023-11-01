@@ -95,8 +95,8 @@ deleteForm.onsubmit = async e => {
 }
 
 async function deleteUserForm(data) {
-  const res = await fetch(`${api_url}/users/delete`, {
-    method: 'POST',
+  const res = await fetch(`${api_url}/users`, {
+    method: 'DELETE',
     credentials:'include',
     cache:'no-cache',
     headers: {

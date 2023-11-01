@@ -7,46 +7,64 @@
     <main>
         <div class="flex flex-col justify-center items-center lg:ml-80 ml-0 mb-10">
             
-                <h1 class="text-center uppercase font-bold text-7xl	text-transparent bg-clip-text 
-                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 my-10
-                [&::selection]:text-base-content [&::selection]:bg-blue-700/20
-                ">Users</h1>
+            <h1 class="text-center uppercase font-bold text-7xl	text-transparent bg-clip-text 
+            bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 my-10
+            [&::selection]:text-base-content [&::selection]:bg-blue-700/20
+            ">Users</h1>
 
-                <h2 class="mb-5 text-2xl">Users List</h2>
+            <h2 class="mb-5 text-2xl">Users List</h2>
 
-                <table class="table mb-10" >
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody id="users-table">  </tbody>
-                </table>
+            <table class="table mb-10" >
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table">  </tbody>
+            </table>
 
-                <h2 class="mb-5 text-2xl">Add User</h2>
-
-                <form id="form-user" class="mb-10 max-w-xl">
-                    <input type="text" placeholder="Name" class="input input-bordered w-full mb-5" name="name"/>
-                    <input type="text" placeholder="Email" class="input input-bordered w-full mb-5" name="email"/>
-                    <input type="text" placeholder="Password" class="input input-bordered w-full mb-5" name="password"/>
-                    <input class="btn btn-active btn-primary w-full" type="submit" value="SUBMIT USER">
-                </form>
-
-                <h2 class="mb-5 text-2xl">Delete User</h2>
-
-                <form id="delete-user" class="max-w-xl w-full">
-                    <input type="text" placeholder="Email" class="input input-bordered w-full mb-5" name="email"/>
-                    <input class="btn btn-active btn-primary w-full outline" type="submit" value="DELETE USER">
-                </form>
-
-
-                <div style="display: none;" id="status-panel" class="alert alert-info w-80 fixed bottom-1 right-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span id="status" >Some informations.</span>
-                    <button id="panel-btn" class="btn-error btn rounded-full">X</button>
+            <button class="btn btn-primary w-32 mb-5" onclick="my_modal_1.showModal()">Add User</button>
+            <dialog id="my_modal_1" class="modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">Add User</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action flex-col items-end">
+                    <form id="form-user" class="mb-10 max-w-xl">
+                        <input type="text" placeholder="Name" class="input input-bordered w-full mb-5" name="name"/>
+                        <input type="text" placeholder="Email" class="input input-bordered w-full mb-5" name="email"/>
+                        <input type="text" placeholder="Password" class="input input-bordered w-full mb-5" name="password"/>
+                        <input class="btn btn-active btn-primary w-full" type="submit" value="SUBMIT USER">
+                    </form>
+                    <form method="dialog">
+                        <button class="btn">Close</button>
+                    </form>
                 </div>
-            
+              </div>
+            </dialog>
+
+            <button class="btn btn-primary w-32" onclick="my_modal_2.showModal()">Delete User</button>
+            <dialog id="my_modal_2" class="modal">
+              <div class="modal-box">
+                <h3 class="font-bold text-lg">Delete User</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action flex-col items-end">
+                    <form id="delete-user" class="max-w-xl w-full mb-10">
+                        <input type="text" placeholder="Email" class="input input-bordered w-full mb-5" name="email"/>
+                        <input class="btn btn-active btn-primary w-full" type="submit" value="DELETE USER">
+                    </form>
+                    <form method="dialog">
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+              </div>
+            </dialog>
+
+            <div style="display: none;" id="status-panel" class="alert alert-info w-80 fixed bottom-1 right-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span id="status" >Some informations.</span>
+                <button id="panel-btn" class="btn-error btn rounded-full">X</button>
+            </div>
         </div>
     </main>
 <%- include('includes/footer.ejs')  %>
