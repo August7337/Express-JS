@@ -22,6 +22,7 @@ const {dirname,join} = require('path');
 const { fileURLToPath } = require('url');
 const usersRouter = require('./routes/users-routes');
 const authRouter = require('./routes/auth-routes');
+const postsRouter = require('./routes/posts-routes');
 
 dotenv.config();
 
@@ -36,6 +37,7 @@ app.use(coockieParser());
 app.use('/', express.static(join(__dirname, 'public')))
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
+app.use('/api/posts', postsRouter);
 
 app.listen(PORT, ()=> {
     console.log(`Server is listening on port:${PORT}`);

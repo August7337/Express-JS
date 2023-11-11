@@ -1,1 +1,44 @@
-[{"title":"Counter Strike 2","url":"Counter-Strike-Global-Offensive","image":"https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1683566799","price":"0","description":"The new Counter Strike 2 w/ new graphimse"},{"title":"assasin's creed mirage","url":"Counter-Strike-Global-Offensive222","image":"https://static1.millenium.org/articles/2/40/74/42/@/1725007-assassins-creed-mirage-amp_main_media_schema-1.png","price":"79","description":"A game developed by Ubisoft Bordeaux."},{"title":"City Skiline 2","url":"city-skiline-2","image":"https://cdn.akamai.steamstatic.com/steam/apps/949230/capsule_616x353.jpg?t=1697724777","price":"69.99","description":"City Skiline the 2..."},{"title":"FC 24","url":"fc24","image":"https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000061749/bd653d83bdcc1613cfacae62845933633ce97fffc52e7e4070014eb41f9e75f7","price":"89.99","description":"Fifa 24"},{"title":"Hogwarts Legacy","url":"Hogwarts-Legacy","image":"https://cdn1.epicgames.com/offer/e97659b501af4e3981d5430dad170911/EGS_HogwartsLegacy_AvalancheSoftware_S1_2560x1440-2baf3188eb3c1aa248bcc1af6a927b7e","price":"49.99","description":"Hogwarts Legacy: L'Héritage de Poudlard"},{"title":"Zelda Tears Of The Kingdom","url":"zelda tears of the kingdom","image":"https://lebetatesteur.ca/wp-content/uploads/2023/05/The-Legend-of-Zelda-Tears-of-the-Kingdom-the-cost-1280x720-1.jpg","price":"79.99","description":"Zelda Tears Of The Kingdom 2023"}]
+[
+    {
+        "title": "Counter Strike 2",
+        "url": "Counter-Strike-Global-Offensive",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/730/capsule_616x353.jpg?t=1683566799",
+        "price": "0",
+        "description": "The new Counter Strike 2 w/ new graphimse"
+    },
+    {
+        "title": "assasin's creed mirage",
+        "url": "Counter-Strike-Global-Offensive222",
+        "image": "https://static1.millenium.org/articles/2/40/74/42/@/1725007-assassins-creed-mirage-amp_main_media_schema-1.png",
+        "price": "79",
+        "description": "A game developed by Ubisoft Bordeaux."
+    },
+    {
+        "title": "City Skiline 2",
+        "url": "city-skiline-2",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/949230/capsule_616x353.jpg?t=1697724777",
+        "price": "69.99",
+        "description": "City Skiline the 2..."
+    },
+    {
+        "title": "FC 24",
+        "url": "fc24",
+        "image": "https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000061749/bd653d83bdcc1613cfacae62845933633ce97fffc52e7e4070014eb41f9e75f7",
+        "price": "89.99",
+        "description": "Fifa 24"
+    },
+    {
+        "title": "Hogwarts Legacy",
+        "url": "Hogwarts-Legacy",
+        "image": "https://cdn1.epicgames.com/offer/e97659b501af4e3981d5430dad170911/EGS_HogwartsLegacy_AvalancheSoftware_S1_2560x1440-2baf3188eb3c1aa248bcc1af6a927b7e",
+        "price": "49.99",
+        "description": "Hogwarts Legacy: L'Héritage de Poudlard"
+    },
+    {
+        "title": "Zelda Tears Of The Kingdom",
+        "url": "zelda tears of the kingdom",
+        "image": "https://lebetatesteur.ca/wp-content/uploads/2023/05/The-Legend-of-Zelda-Tears-of-the-Kingdom-the-cost-1280x720-1.jpg",
+        "price": "79.99",
+        "description": "Zelda Tears Of The Kingdom 2023"
+    }
+]
