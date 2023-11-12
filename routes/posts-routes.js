@@ -40,7 +40,7 @@ router.delete('/', async (req, res) => {
     }
 });
 
-router.post('/update', async (req, res) => {
+router.patch('/', async (req, res) => {
     try {
       reqBody = req.body;
       const deletePosts = await executeQuery(
