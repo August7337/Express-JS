@@ -20,15 +20,15 @@ exports.postAddProductPage = (req, res) => {
     res.redirect('/');
 };
 
-exports.getAdminProductsPage = (req, res) => {
-    fetchAllProducts((products) => {
-        const viewsData = {
-            admin: true,
-            pageTitle: 'Admin Products',
-            products
-        }
-        res.render('product-list', viewsData);
-    })
+exports.getAdminProductsPage = async (req, res) => {
+    const fetchProducts = await fetch(`http://localhost:5000/api/posts`);
+    products = await fetchProducts.json();
+    const viewsData = {
+        admin: true,
+        pageTitle: 'Admin Products',
+        products
+    }
+    res.render('product-list', viewsData);
 }
 
 exports.getAdminUsersPage = (req, res) => {
@@ -37,8 +37,6 @@ exports.getAdminUsersPage = (req, res) => {
     }
     res.render('users', viewsData);
 }
-
-
 
 exports.getEditProductPage = (req, res) => {
     const productUrl = req.params.productUrl;

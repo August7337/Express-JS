@@ -1,16 +1,17 @@
 <%- include('includes/head.ejs') %>
 <script type="module" src="/refresh-token.js"></script>
+<script type="module" src="/js/add-post.js"></script>
 </head>
 <body>
     <%- include('includes/navigation.ejs')  %>
     <main>
         <div class=" container mx-auto">
-            <div class="flex flex-col w-full items-center mb-10">
+            <div class="flex flex-col items-center lg:ml-80 ml-0 mb-10">
                 <div class="max-w-md mx-5">
                     <h1 class="mb-10 mt-10 uppercase font-bold text-5xl md:text-7xl text-transparent bg-clip-text 
                     bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
                     [&::selection]:text-base-content [&::selection]:bg-blue-700/20"><%= edit ? 'Edit Product' : 'Add Product' %></h1>
-                    <form method="POST" action="<%= edit ? '/admin/edit' : '/admin/add' %>"> 
+                    <form method="POST" id="<%= edit ? 'edit-post' : 'add-post' %>"> 
                         <% if (edit) { %>
                             <input type="hidden" name="productUrl" value="<%= product.url %>" />
                         <% } %>
@@ -31,10 +32,10 @@
                         <input placeholder="Type here" type="text" class="input input-bordered w-full mb-3" name="image" value="<%= edit ? product.image : '' %>"/>
                         
                         
-                        <label class="label" for="price">
-                            <span class="label-text">Price</span>
+                        <label class="label" for="date">
+                            <span class="label-text">date</span>
                         </label>
-                        <input placeholder="Type here" type="number" step="any" class="input input-bordered w-full mb-3" name="price" value="<%= edit ? product.price : '' %>"/>
+                        <input placeholder="Type here" type="text" class="input input-bordered w-full mb-3" name="date" value="<%= edit ? product.date : '' %>"/>
                         
                         <label class="label" for="description">
                             <span class="label-text">Description</span>
@@ -46,6 +47,7 @@
                     </form>
                 </div>
             </div>
+            <%- include('includes/alert.ejs')  %>
         </div>
     </main>
 <%- include('includes/footer.ejs')  %>

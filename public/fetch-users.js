@@ -4,9 +4,10 @@ const fStatus = document.getElementById("status");
 const sPanel = document.getElementById("status-panel");
 const pBtn = document.getElementById("panel-btn");
 const deleteForm = document.getElementById("delete-user");
+var allInputs = document.querySelectorAll('input');
 
 let showPanel = (bShow) => {
-  bShow ? sPanel.style.display = "flex" : sPanel.style.display = "none";
+  bShow ? sPanel.style.display = "grid" : sPanel.style.display = "none";
 }
 
 pBtn.onclick = () => {
@@ -53,7 +54,8 @@ formUser.onsubmit = async e => {
     return;
   }
   user();
-  fStatus.innerHTML = `Successful!`;
+  fStatus.innerHTML = `Creation success!`;
+  allInputs.forEach(singleInput => singleInput.value = '');
 }
 
 async function createUser(data) {
@@ -91,7 +93,8 @@ deleteForm.onsubmit = async e => {
     return;
   }
   user();
-  fStatus.innerHTML = `Successful!`;
+  fStatus.innerHTML = `Deletion successful!`;
+  allInputs.forEach(singleInput => singleInput.value = '');
 }
 
 async function deleteUserForm(data) {
@@ -106,3 +109,4 @@ async function deleteUserForm(data) {
   });
   return await res.json();
 }
+

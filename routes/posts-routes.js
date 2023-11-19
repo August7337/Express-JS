@@ -15,6 +15,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/url', async (req, res) => {
+  try {
+    reqBody = req.body;
+    const queryResult = await executeQuery(`SELECT * FROM posts WHERE post_url = '${reqBody.url}'`);
+    res.json(queryResult);
+  } catch (error) {
+      console.error(error.message);
+      res.status(500).json({ error: error.message });
+  }
+});
+
 router.post('/', async (req, res) => {
     try {
         reqBody = req.body;
@@ -32,9 +43,9 @@ router.delete('/', async (req, res) => {
     try {
       reqBody = req.body;
       const deletePosts = await executeQuery(
-        `DELETE FROM posts WHERE post_url = '${reqBody.url}'`
+        `DELETE FROM posts WHERE post_id = '${reqBody.id}'`
       );
-      res.json(`success to delete ${reqBody.url}`);
+      res.json(`success to delete ${reqBody.id}`);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -43,7 +54,7 @@ router.delete('/', async (req, res) => {
 router.patch('/', async (req, res) => {
     try {
       reqBody = req.body;
-      const deletePosts = await executeQuery(
+      const patchPosts = await executeQuery(
         `UPDATE posts SET post_date='${reqBody.date}',post_url='${reqBody.url}', post_title='${reqBody.title}', 
         post_image='${reqBody.image}', post_description='${reqBody.description}', post_add_html='${reqBody.add_HTML}'
         WHERE post_id='${reqBody.id}';`
