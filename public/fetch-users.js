@@ -94,7 +94,7 @@ deleteForm.onsubmit = async e => {
   }
   user();
   fStatus.innerHTML = `Deletion successful!`;
-  allInputs.forEach(singleInput => singleInput.value = '');
+  allInputs.forEach(singleInput => {if (singleInput.type === 'text') {singleInput.value = '';}});
 }
 
 async function deleteUserForm(data) {

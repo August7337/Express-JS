@@ -4,7 +4,6 @@ let api_url = '/api';
 exports.getHomePage = async (req, res) => {
     const fetchProducts = await fetch(`http://localhost:5000/api/posts`);
     products = await fetchProducts.json();
-    console.log(products);
     const viewsData = {
         admin: false,
         products,
@@ -14,7 +13,6 @@ exports.getHomePage = async (req, res) => {
 };
 
 exports.getProductDetailsPage = async (req, res) => {
-
     async function getPostByUrl(data) {
         const res = await fetch(`http://localhost:5000/api/posts/url`, {
           method: 'POST',
@@ -28,14 +26,11 @@ exports.getProductDetailsPage = async (req, res) => {
         return await res.json();
     }
 
-    const productUrl = req.params.productUrl;
     const products = await getPostByUrl({url: req.params.productUrl});
     if (products.error) {
         console.log(products.error);
         return;
     }
-    console.log(products);
-    console.log(products[0].post_title);
     product = products[0];
     const viewsData = {
         product,

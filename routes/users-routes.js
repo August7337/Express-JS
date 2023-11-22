@@ -33,7 +33,6 @@ router.post('/', authenticateToken, async (req, res) => {
 router.delete('/', authenticateToken, async (req, res) => {
   try {
     reqEmail = req.body;
-    console.log('reqEmail : ', reqEmail);
     const deleteUser = await executeQuery(
       `DELETE FROM users WHERE user_email = '${reqEmail.email}'`
     );
