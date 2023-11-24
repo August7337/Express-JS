@@ -2,7 +2,7 @@ const { fetchAllProducts, getProductByUrl } = require("../models/product");
 let api_url = '/api';
 
 exports.getHomePage = async (req, res) => {
-    const fetchProducts = await fetch(`http://localhost:5000/api/posts`);
+    const fetchProducts = await fetch(`${process.env.DOMAIN}/api/posts`);
     products = await fetchProducts.json();
     const viewsData = {
         admin: false,
@@ -14,7 +14,7 @@ exports.getHomePage = async (req, res) => {
 
 exports.getProductDetailsPage = async (req, res) => {
     async function getPostByUrl(data) {
-        const res = await fetch(`http://localhost:5000/api/posts/url`, {
+        const res = await fetch(`${process.env.DOMAIN}/api/posts/url`, {
           method: 'POST',
           credentials:'include',
           cache:'no-cache',

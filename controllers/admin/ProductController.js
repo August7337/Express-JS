@@ -21,7 +21,7 @@ exports.postAddProductPage = (req, res) => {
 };
 
 exports.getAdminProductsPage = async (req, res) => {
-    const fetchProducts = await fetch(`http://localhost:5000/api/posts`);
+    const fetchProducts = await fetch(`${process.env.DOMAIN}/api/posts`);
     products = await fetchProducts.json();
     const viewsData = {
         admin: true,
