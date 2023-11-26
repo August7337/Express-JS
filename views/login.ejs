@@ -24,24 +24,9 @@
         <input class="btn btn-active btn-primary w-full" type="submit" value="LOGIN">
       </form>
     </div>
-
-    <div class="flex flex-col  justify-between">
-      <div id="div-users" class="mb-3">
-        <button class="btn btn-outline btn-secondary w-full mb-1" id="button-get-users">GET USERS</button>
-        <ul id="user-list"></ul>
-      </div>
-  
-      <div>
-        <button class="btn btn-outline btn-secondary w-full mb-4" id="button-refresh-token">REFRESH TOKEN</button>
-      </div>
-  
-      <div>
-        <button class="btn btn-outline btn-error w-full mb-4" id="button-delete-token">LOGOUT</button>
-      </div>
-    </div>
 </div>
   
-  <script type="module" id=""src="/jwt-decode.js"></script>
-  <script type="module" src="/index.js"></script>
+  <script type="module" id=""src="/js/jwt-decode.js"></script>
+  <script type="module" src="/js/login.js"></script>
   <script type="module" src="/refresh-token.js"></script>
 <%- include('includes/footer.ejs')  %>

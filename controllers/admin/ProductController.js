@@ -1,23 +1,9 @@
-const { saveProduct, fetchAllProducts, getProductByUrl, updateProductByUrl, deleteProductByUrl } = require("../../models/product");
-
 exports.getAddProductPage = (req, res) => {
     const viewsData = {
         edit: false,
         pageTitle: 'Add Product'
     };
     res.render('AddProduct', viewsData);
-};
-
-exports.postAddProductPage = (req, res) => {
-    const product = {
-        title: req.body.title,
-        url: req.body.url,
-        image: req.body.image,
-        price: req.body.price,
-        description: req.body.description
-    }
-    saveProduct(product);
-    res.redirect('/');
 };
 
 exports.getAdminProductsPage = async (req, res) => {
@@ -66,25 +52,6 @@ exports.getEditProductPage = async (req, res) => {
         pageTitle: 'Edit Product'
     };
     res.render('AddProduct', viewsData);
-};
-
-exports.postEditProductPage = (req, res) => {
-    const product = {
-        title: req.body.title,
-        url: req.body.productUrl,
-        image: req.body.image,
-        price: req.body.price,
-        description: req.body.description
-    };
-    updateProductByUrl(product, req.body.productUrl);
-    res.redirect('/admin');
-};
-
-exports.postDeleteProductPage = (req, res) => {
-    const productUrl = req.body.productUrl;
-    deleteProductByUrl(productUrl, () => {
-        res.redirect('/admin');
-    });
 };
 
 exports.getLoginPage = (req, res) => {

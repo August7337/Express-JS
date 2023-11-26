@@ -1,12 +1,13 @@
 <%- include('includes/head.ejs') %>
 <% if (admin) { %>
-    <script type="module" src="/refresh-token.js"></script>
+    <script type="module" src="/js/refresh-token.js"></script>
     <script type="module" src="/js/delete-post.js"></script>
 <% } %>
 </head>
 <body>
     <% if (admin) { %>
         <%- include('includes/navigation.ejs')  %>
+        <%- include('includes/alert.ejs')  %>
     <% } %>
     <main>
         <% if (admin) { %>

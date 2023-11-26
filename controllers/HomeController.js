@@ -1,4 +1,3 @@
-const { fetchAllProducts, getProductByUrl } = require("../models/product");
 let api_url = '/api';
 
 exports.getHomePage = async (req, res) => {
