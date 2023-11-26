@@ -9,6 +9,10 @@ let showPanel = (bShow) => {
   bShow ? sPanel.style.display = "grid" : sPanel.style.display = "none";
 }
 
+pBtn.onclick = () => {
+  showPanel(false);
+}
+
 addPost.onsubmit = async e => {
   console.log(addPost);
   e.preventDefault();
@@ -17,7 +21,8 @@ addPost.onsubmit = async e => {
       url: addPost.url.value, 
       image: addPost.image.value,
       date: addPost.date.value,
-      description: addPost.description.value
+      description: addPost.description.value,
+      add_HTML: addPost.add_HTML.value
   });
   showPanel(true);
   if (postDetails.error) {

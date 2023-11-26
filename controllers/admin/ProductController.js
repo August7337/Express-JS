@@ -38,17 +38,34 @@ exports.getAdminUsersPage = (req, res) => {
     res.render('users', viewsData);
 }
 
-exports.getEditProductPage = (req, res) => {
-    const productUrl = req.params.productUrl;
+exports.getEditProductPage = async (req, res) => {
+    async function getPostByUrl(data) {
+        const res = await fetch(`${process.env.DOMAIN}/api/posts/url`, {
+          method: 'POST',
+          credentials:'include',
+          cache:'no-cache',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        return await res.json();
+    }
     
-    getProductByUrl(productUrl, (product) => {
-        const viewsData = {
-            edit: true,
-            product,
-            pageTitle: 'Edit Product'
-        };
-        res.render('AddProduct', viewsData);
-    });
+
+    const products = await getPostByUrl({url: req.params.productUrl});
+    if (products.error) {
+        console.log(products.error);
+        return;
+    }
+    
+    product = products[0];
+    const viewsData = {
+        edit: true,
+        product,
+        pageTitle: 'Edit Product'
+    };
+    res.render('AddProduct', viewsData);
 };
 
 exports.postEditProductPage = (req, res) => {
