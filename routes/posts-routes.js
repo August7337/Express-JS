@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/url', async (req, res) => {
+router.post('/url',authenticateToken, async (req, res) => {
   try {
     reqBody = req.body;
     const queryResult = await executeQuery(`SELECT * FROM posts WHERE post_url = '${reqBody.url}'`);
@@ -26,7 +26,7 @@ router.post('/url', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/',authenticateToken, async (req, res) => {
     try {
         reqBody = req.body;
         const newPost = await executeQuery(
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.delete('/', async (req, res) => {
+router.delete('/',authenticateToken, async (req, res) => {
     try {
       reqBody = req.body;
       const deletePosts = await executeQuery(
@@ -51,7 +51,7 @@ router.delete('/', async (req, res) => {
     }
 });
 
-router.patch('/', async (req, res) => {
+router.patch('/',authenticateToken, async (req, res) => {
     try {
       reqBody = req.body;
       const patchPosts = await executeQuery(
