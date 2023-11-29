@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/url',authenticateToken, async (req, res) => {
+router.post('/url', async (req, res) => {
   try {
     reqBody = req.body;
     const queryResult = await executeQuery(`SELECT * FROM posts WHERE post_url = '${reqBody.url}'`);

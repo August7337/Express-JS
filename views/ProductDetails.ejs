@@ -12,6 +12,9 @@
                     <img src="<%= product.post_image %>" class="max-w-2xl mb-5"/>
                     <div>date: <strong>$<%= product.post_date %></strong></div>
                     <p class="mb-5"><%= product.post_description %></p>
+                    <div class="mb-5">
+                        <%- product.post_add_html %>
+                    </div>
                     <form action="/">
                         <input class="btn btn-outline btn-warning w-full" type="submit" value="Return to home" />
                     </form>
